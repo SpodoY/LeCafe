@@ -1,4 +1,4 @@
-package com.example.decafe;
+package com.example.decafe.gameObjects;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -17,8 +17,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 // Class used to control all the methods needed to operate a Machine
 public class Machine {

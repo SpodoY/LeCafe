@@ -1,4 +1,4 @@
-package com.example.decafe;
+package com.example.decafe.gameObjects;
 
 // Class to handle Methods used to change the Image and movement speed of waiter
 public class Player {
