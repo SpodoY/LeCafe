@@ -204,7 +204,7 @@ public class HelloController implements Initializable {
         public void handle(long timestamp) {
             int movementVariable = CofiBrew.getMovement();
             double move = movementVariable; // store movementVariable in new variable
-            String movement = "none";
+            Move movement = Move.NONE;
 
             // if two keys are pressed at once and player moves diagonally - correct diagonal speed
             if (wPressed.get() && aPressed.get() || wPressed.get() && dPressed.get() ||
@@ -219,25 +219,25 @@ public class HelloController implements Initializable {
             // if waiter should move up
             if (wPressed.get()) {
                 yMove = -move; // negative move because otherwise waiter would move down
-                movement = "up";
+                movement = Move.UP;
             }
 
             // if waiter should move down
             if (sPressed.get()) {
                 yMove = move;
-                movement = "down";
+                movement = Move.DOWN;
             }
 
             // if waiter should move left
             if (aPressed.get()) {
                 xMove = -move; // negative move because otherwise waiter would move right
-               movement = "left";
+               movement = Move.LEFT;
             }
 
             // if waiter should move right
             if (dPressed.get()) {
                 xMove = move;
-                movement = "right";
+                movement = Move.RIGHT;
             }
 
             // set x and y coordinates of waiter
@@ -248,9 +248,9 @@ public class HelloController implements Initializable {
             if (checkForCollision(waiterImageView)) {
                 waiterImageView.setLayoutX(waiterImageView.getLayoutX() - xMove);
                 waiterImageView.setLayoutY(waiterImageView.getLayoutY() - yMove);
-                movement = "none";
+                movement = Move.NONE;
             } else {
-                if (movement.equals("up")){
+                if (movement.equals(Move.UP)){
                     try {
                         if (CofiBrew.getProductInHand().equals("none")) {
                             waiterImageView.setImage(createImage("CofiBrewUp.png"));
@@ -262,7 +262,7 @@ public class HelloController implements Initializable {
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
-                } else if (movement.equals("down")){
+                } else if (movement.equals(Move.DOWN)){
                     try {
                         if (CofiBrew.getProductInHand().equals("none")) {
                             waiterImageView.setImage(createImage("CofiBrewDown.png"));
@@ -274,7 +274,7 @@ public class HelloController implements Initializable {
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
-                } else if (movement.equals("left")){
+                } else if (movement.equals(Move.LEFT)){
                     try {
                         if (CofiBrew.getProductInHand().equals("none")) {
                             waiterImageView.setImage(createImage("CofiBrewLeft.png"));
@@ -286,7 +286,7 @@ public class HelloController implements Initializable {
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
-                } else if (movement.equals("right")){
+                } else if (movement.equals(Move.RIGHT)){
                     try {
                         if (CofiBrew.getProductInHand().equals("none")) {
                             waiterImageView.setImage(createImage("CofiBrewRight.png"));
