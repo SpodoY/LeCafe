@@ -1,5 +1,8 @@
-package com.example.decafe;
+package com.example.decafe.gameLogic;
 
+import com.example.decafe.HelloApplication;
+import com.example.decafe.gameObjects.Player;
+import com.example.decafe.gameObjects.Customer;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
@@ -16,8 +19,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import java.io.*;
 import java.net.URL;

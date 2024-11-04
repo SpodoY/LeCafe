@@ -1,5 +1,6 @@
 package com.example.decafe;
 
+import com.example.decafe.gameLogic.Game;
 import javafx.scene.image.ImageView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
