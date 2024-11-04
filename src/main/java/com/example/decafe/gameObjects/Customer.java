@@ -1,14 +1,13 @@
-package com.example.decafe;
+package com.example.decafe.gameObjects;
 
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+
 
 import java.io.*;
 import java.util.*;
+
+import static com.example.decafe.utils.ImageHelper.createImage;
 
 
 public class Customer {
@@ -38,7 +37,7 @@ public class Customer {
     public static ImageView[] coinImages; //image for coins
 
     // Constructors
-    Customer(){}
+    public Customer(){}
     Customer(ImageView image, ImageView label, int chair, ImageView smiley, ImageView coinImage) {
         this.customer = image;
         this.orderLabel = label;
@@ -118,15 +117,6 @@ public class Customer {
 
     public static void setControllerTimer(Timer controllerTimer) { //sets the timer
         Customer.controllerTimer = controllerTimer;
-    }
-
-    // Method used to create an Image Object
-    public Image createImage(String filename) throws FileNotFoundException {
-        File f = new File(""); // Get filepath of project
-        // Get path to certain Image
-        String filePath = f.getAbsolutePath() + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "decafe" + File.separator + filename;
-        InputStream stream = new FileInputStream(filePath); // Convert path into stream
-        return new Image(stream); // Convert stream to Image and return it
     }
 
     //Returns the appropriate image for the customer
@@ -348,7 +338,7 @@ public class Customer {
             AudioClip wrongOrder = new AudioClip(new File(musicFile).toURI().toString());
             //MediaPlayer collectMoney = new MediaPlayer(sound);
             wrongOrder.play();
-            this.coinImage.setImage(this.createImage("coin.png")); // set coin Image to empty plate
+            this.coinImage.setImage(createImage("coin.png")); // set coin Image to empty plate
             this.coinImage.setOnMouseClicked(event1 -> { // set click event to this
                 try {
                     noMoneySpent(this);

@@ -1,5 +1,8 @@
-package com.example.decafe;
+package com.example.decafe.gameLogic;
 
+import com.example.decafe.HelloApplication;
+import com.example.decafe.gameObjects.Player;
+import com.example.decafe.gameObjects.Customer;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;

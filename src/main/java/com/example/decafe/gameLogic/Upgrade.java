@@ -1,13 +1,10 @@
-package com.example.decafe;
+package com.example.decafe.gameLogic;
 
 
-import javafx.scene.image.Image;
+import com.example.decafe.utils.ImageHelper;
 import javafx.scene.image.ImageView;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 // Function used to control all the methods used for Upgrades
 public class Upgrade {
@@ -51,19 +48,11 @@ public class Upgrade {
     }
 
 
-    // Method used to create an Image Object
-    public Image createImage(String filename) throws FileNotFoundException {
-        File f = new File(""); // Get filepath of project
-        // Get path to certain Image
-        String filePath = f.getAbsolutePath() + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "decafe" + File.separator + filename;
-        InputStream stream = new FileInputStream(filePath); // Convert path into stream
-        return new Image(stream); // Convert stream to Image and return it
-    }
 
     // Method used to use an Upgrade
     public int doUpgrades(int coin) throws FileNotFoundException {
         // Change Image to the "deactivated" Upgrade Image
-        this.upgradeImageView.setImage(createImage(this.filenameUpgradeUsed));
+        this.upgradeImageView.setImage(ImageHelper.createImage(this.filenameUpgradeUsed));
         // Disable the ImageView
         this.upgradeImageView.setDisable(true);
         // Set the Used variable to true
