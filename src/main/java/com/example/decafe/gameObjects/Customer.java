@@ -1,14 +1,13 @@
-package com.example.decafe;
+package com.example.decafe.gameObjects;
 
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+
 
 import java.io.*;
 import java.util.*;
+
+import static com.example.decafe.utils.ImageHelper.createImage;
 
 
 public class Customer {
@@ -38,7 +37,7 @@ public class Customer {
     public static ImageView[] coinImages; //image for coins
 
     // Constructors
-    Customer(){}
+    public Customer(){}
     Customer(ImageView image, ImageView label, int chair, ImageView smiley, ImageView coinImage) {
         this.customer = image;
         this.orderLabel = label;
@@ -120,34 +119,17 @@ public class Customer {
         Customer.controllerTimer = controllerTimer;
     }
 
-    // Method used to create an Image Object
-    public Image createImage(String filename) throws FileNotFoundException {
-        File f = new File(""); // Get filepath of project
-        // Get path to certain Image
-        String filePath = f.getAbsolutePath() + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "com" + File.separator + "example" + File.separator + "decafe" + File.separator + filename;
-        InputStream stream = new FileInputStream(filePath); // Convert path into stream
-        return new Image(stream); // Convert stream to Image and return it
-    }
-
     //Returns the appropriate image for the customer
     public static ImageView getImage(ImageView customer, ImageView[] searchArray ){
         ImageView wantedImage = new ImageView();
 
-        if (customerImages[0].equals(customer)) {
-            wantedImage = searchArray[0];
-        } else if (customerImages[1].equals(customer)) {
-            wantedImage = searchArray[1];
-        } else if (customerImages[2].equals(customer)) {
-            wantedImage = searchArray[2];
-        } else if (customerImages[3].equals(customer)) {
-            wantedImage = searchArray[3];
-        } else if (customerImages[4].equals(customer)) {
-            wantedImage = searchArray[4];
-        } else if (customerImages[5].equals(customer)) {
-            wantedImage = searchArray[5];
-        } else if (customerImages[6].equals(customer)) {
-            wantedImage = searchArray[6];
+        for (int i = 0; i < customerImages.length; i++) {
+            if (customerImages[i].equals(customer)) {
+                wantedImage = searchArray[i];
+                break;
+            }
         }
+
 
         return wantedImage;
     }
@@ -157,20 +139,11 @@ public class Customer {
 
         ImageView customerOrder = new ImageView();
 
-        if (customerImages[0].equals(customer)) {
-            customerOrder = orderLabels[0];
-        } else if (customerImages[1].equals(customer)) {
-            customerOrder = orderLabels[1];
-        } else if (customerImages[2].equals(customer)) {
-            customerOrder = orderLabels[2];
-        } else if (customerImages[3].equals(customer)) {
-            customerOrder = orderLabels[3];
-        } else if (customerImages[4].equals(customer)) {
-            customerOrder = orderLabels[4];
-        } else if (customerImages[5].equals(customer)) {
-            customerOrder = orderLabels[5];
-        } else if (customerImages[6].equals(customer)) {
-            customerOrder = orderLabels[6];
+        for (int i = 0; i < customerImages.length; i++) {
+            if (customerImages[i].equals(customer)) {
+                customerOrder = orderLabels[i];
+                break;
+            }
         }
 
         return customerOrder;
@@ -194,7 +167,7 @@ public class Customer {
 
     //Methode to spawn customers
     public static void spawnCustomers(){
-        if (customersInCoffeeShop.size() < 3 && freeChairs.size() != 0) { //spawn a new customer this when under 3 customers are in the café
+        if (customersInCoffeeShop.size() < 3 && !freeChairs.isEmpty()) { //spawn a new customer this when under 3 customers are in the café
             ImageView customerImage = getRandomPic(); //get random picture from Array
             customerImage.setVisible(true); //make this picture visible
 
@@ -365,7 +338,7 @@ public class Customer {
             AudioClip wrongOrder = new AudioClip(new File(musicFile).toURI().toString());
             //MediaPlayer collectMoney = new MediaPlayer(sound);
             wrongOrder.play();
-            this.coinImage.setImage(this.createImage("coin.png")); // set coin Image to empty plate
+            this.coinImage.setImage(createImage("coin.png")); // set coin Image to empty plate
             this.coinImage.setOnMouseClicked(event1 -> { // set click event to this
                 try {
                     noMoneySpent(this);

@@ -1,5 +1,8 @@
-package com.example.decafe;
+package com.example.decafe.gameLogic;
 
+import com.example.decafe.gameObjects.Machine;
+import com.example.decafe.gameObjects.Player;
+import com.example.decafe.gameObjects.Customer;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -21,7 +24,7 @@ public class Game {
     private final String filenameImageDollar; // Images of huge amount of money earned
 
     // Constructor
-    Game(ImageView upgradeCoffee, ImageView upgradeCake, ImageView upgradePlayer){
+    public Game(ImageView upgradeCoffee, ImageView upgradeCake, ImageView upgradePlayer){
         this.coffeeMachine = new Machine(5, "coffeeMachineWithCoffee.png", "coffeeMachine.png", "coffee");
         this.cakeMachine = new Machine(5, "kitchenAidUsed.png", "kitchenAid.png", "cake");
         this.coffeeUpgrade = new Upgrade(20, false, "coffeeUpgrade.png", "coffeeUsed.png",  upgradeCoffee);
