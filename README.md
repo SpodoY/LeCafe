@@ -1,5 +1,4 @@
 # DeCafé
----
 [![Java CI with Maven](https://github.com/SpodoY/LeCafe/actions/workflows/maven.yml/badge.svg)](https://github.com/SpodoY/LeCafe/actions/workflows/maven.yml)
 ## How to run the Game
 ### Environment
