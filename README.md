@@ -1,4 +1,6 @@
 # DeCafé
+---
+[![Java CI with Maven](https://github.com/SpodoY/LeCafe/actions/workflows/maven.yml/badge.svg)](https://github.com/SpodoY/LeCafe/actions/workflows/maven.yml)
 ## How to run the Game
 ### Environment
 Decafé is a JavaFX Application therefore, it needs to run in an IDE like IntelliJ (or any other IDE that can run Java code)
