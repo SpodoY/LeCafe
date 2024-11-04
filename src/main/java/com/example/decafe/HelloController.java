@@ -16,8 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import java.io.*;
 import java.net.URL;
@@ -149,17 +147,17 @@ public class HelloController implements Initializable {
     // jump to end screen
     public void switchToEndScreen() throws IOException {
         backgroundMusic.stop();
-        loadScene("endScreen.fxml");
+        loadScene(Constants.Scenes.END_SCREEN);
     }
 
     // jump to start screen
     public void switchToStartScreen() throws IOException { // if button BACK TO START MENU is pressed
-        loadScene("startScreen.fxml");
+        loadScene(Constants.Scenes.START_SCREEN);
     }
 
     // jump from start screen to game screen
     public void switchToGameScreen() throws IOException { // if button PLAY AGAIN is pressed
-        loadScene("gameScreen.fxml");
+        loadScene(Constants.Scenes.GAME_SCREEN);
         if (Customer.customerImages[0] != null) {
             Customer customer = new Customer();
             customer.startTimerSpawn(1, Customer.getControllerTimer());
@@ -173,7 +171,7 @@ public class HelloController implements Initializable {
 
     // jump to instructions
     public void switchToInstructions() throws IOException {
-        loadScene("Instructions.fxml");
+        loadScene(Constants.Scenes.INSTRUCTIONS);
     }
 
     // key events if wasd-keys are pressed
