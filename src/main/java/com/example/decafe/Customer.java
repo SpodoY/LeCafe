@@ -133,21 +133,13 @@ public class Customer {
     public static ImageView getImage(ImageView customer, ImageView[] searchArray ){
         ImageView wantedImage = new ImageView();
 
-        if (customerImages[0].equals(customer)) {
-            wantedImage = searchArray[0];
-        } else if (customerImages[1].equals(customer)) {
-            wantedImage = searchArray[1];
-        } else if (customerImages[2].equals(customer)) {
-            wantedImage = searchArray[2];
-        } else if (customerImages[3].equals(customer)) {
-            wantedImage = searchArray[3];
-        } else if (customerImages[4].equals(customer)) {
-            wantedImage = searchArray[4];
-        } else if (customerImages[5].equals(customer)) {
-            wantedImage = searchArray[5];
-        } else if (customerImages[6].equals(customer)) {
-            wantedImage = searchArray[6];
+        for (int i = 0; i < customerImages.length; i++) {
+            if (customerImages[i].equals(customer)) {
+                wantedImage = searchArray[i];
+                break;
+            }
         }
+
 
         return wantedImage;
     }
@@ -157,20 +149,11 @@ public class Customer {
 
         ImageView customerOrder = new ImageView();
 
-        if (customerImages[0].equals(customer)) {
-            customerOrder = orderLabels[0];
-        } else if (customerImages[1].equals(customer)) {
-            customerOrder = orderLabels[1];
-        } else if (customerImages[2].equals(customer)) {
-            customerOrder = orderLabels[2];
-        } else if (customerImages[3].equals(customer)) {
-            customerOrder = orderLabels[3];
-        } else if (customerImages[4].equals(customer)) {
-            customerOrder = orderLabels[4];
-        } else if (customerImages[5].equals(customer)) {
-            customerOrder = orderLabels[5];
-        } else if (customerImages[6].equals(customer)) {
-            customerOrder = orderLabels[6];
+        for (int i = 0; i < customerImages.length; i++) {
+            if (customerImages[i].equals(customer)) {
+                customerOrder = orderLabels[i];
+                break;
+            }
         }
 
         return customerOrder;
@@ -194,7 +177,7 @@ public class Customer {
 
     //Methode to spawn customers
     public static void spawnCustomers(){
-        if (customersInCoffeeShop.size() < 3 && freeChairs.size() != 0) { //spawn a new customer this when under 3 customers are in the café
+        if (customersInCoffeeShop.size() < 3 && !freeChairs.isEmpty()) { //spawn a new customer this when under 3 customers are in the café
             ImageView customerImage = getRandomPic(); //get random picture from Array
             customerImage.setVisible(true); //make this picture visible
 
